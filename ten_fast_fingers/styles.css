@@ -1,0 +1,18 @@
+body{
+    font-size: x-large;
+}
+
+#words{
+    height: 9rem;
+    width:20rem;
+    overflow:hidden;
+}
+
+#in{
+    font-size: x-large;
+    width: 20rem;
+}
+
+#score{
+    display: all;
+}

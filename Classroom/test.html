@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+</head>
+<body>
+<input id="script" name="scriptbutton" onclick="goPython()" type="button" value=" Run Script "/>
+<test>aasd</test>
+<script>
+        function goPython(){
+            $.ajax({
+            type: "POST",
+            url: "~/test.py",
+            data: { param: text}
+            }).done(function( o ) {
+            alert("DONE")
+            });
+        }
+    </script>
+</body>
+</html>

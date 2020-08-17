@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        function insert(x){
+            document.calculator.screen.value = document.calculator.screen.value + x;
+        }
+        function C(){
+            document.calculator.screen.value = "";
+        }
+        function del(){
+            str = document.calculator.screen.value;
+            document.calculator.screen.value = str.substring(0, str.length-1);
+        }
+        function equal(){
+            str = document.calculator.screen.value;
+            document.calculator.screen.value = String(eval(str))
+        }
+    </script>
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="main">
+        <form name="calculator">
+            <input readonly class="screen" name="screen"> 
+        </form>
+        <div class="buttons">
+            <table>
+                <tr>
+                    <th><input type="button" value="C" class="button" onclick="C()"></th>
+                    <th><input type="button" value="/" class="button" onclick="insert('/')"></th>
+                    <th><input type="button" value="X" class="button" onclick="insert('*')"></th>
+                    <th><input type="button" value="<" class="button" onclick="del()"></th>
+                </tr>
+                <tr>
+                    <th><input type="button" value="7" class="button" onclick="insert('7')"></th>
+                    <th><input type="button" value="8" class="button" onclick="insert('8')"></th>
+                    <th><input type="button" value="9" class="button" onclick="insert('9')"></th>
+                    <th><input type="button" value="-" class="button" onclick="insert('-')"></th>
+                </tr>
+                <tr>
+                    <th><input type="button" value="4" class="button" onclick="insert('4')"></th>
+                    <th><input type="button" value="5" class="button" onclick="insert('5')"></th>
+                    <th><input type="button" value="6" class="button" onclick="insert('6')"></th>
+                    <th><input type="button" value="+" class="button" onclick="insert('+')"></th>
+                </tr>
+                <tr>
+                    <th><input type="button" value="1" class="button" onclick="insert('1')"></th>
+                    <th><input type="button" value="2" class="button" onclick="insert('2')"></th>
+                    <th><input type="button" value="3" class="button" onclick="insert('3')"></th>
+                    <th rowspan="2"><input type="button" value="=" class="equal" onclick="equal()"></th>
+                </tr>
+                <tr>
+                    <th><input type="button" value="%" class="button" onclick="insert('%')"></th>
+                    <th><input type="button" value="0" class="button" onclick="insert('0')"></th>
+                    <th><input type="button" value="." class="button" onclick="insert('.')"></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

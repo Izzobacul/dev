@@ -7,3 +7,6 @@ class Email:
         self.mail = f"From: {self.sender}\nTo: {self.to}\nSubject: {self.subject}\n\n{self.body}"
     def __str__(self):
         return(self.mail)
+
+if __name__ == '__main__':
+    e = Email('example@example.com', 'example@example.com', 'Hey how are you!', 'Hello there :)')

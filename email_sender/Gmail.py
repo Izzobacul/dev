@@ -9,4 +9,10 @@ class Gmail:
         self.server.login(username, password)
 
     def send(self, email: Email):
-        self.server.sendmail(email.sender, email.to, email.mail)
+        self.server.sendmail(email.username, email.to, email.mail)
+
+if __name__ == '__main__':
+    email = Email('example@gmail.com', 'example@example.com', 'Hey how are you!', 'Hello there :)')
+
+    gmail = Gmail('example@gmail.com', 'password123')
+    gmail.send(email)

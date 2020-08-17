@@ -1,12 +1,19 @@
+import smtplib
+from Mail import Mail
+
 class Email:
-    def __init__(self, sender, to, subject, body):
-        self.sender = sender
-        self.to = to
-        self.subject = subject
-        self.body = body
-        self.mail = f"From: {self.sender}\nTo: {self.to}\nSubject: {self.subject}\n\n{self.body}"
-    def __str__(self):
-        return(self.mail)
+    def __init__(self, server, username, password):
+        self.username = username
+        self.server = smtplib.SMTP(server, 587)
+        self.server.ehlo()
+        self.server.starttls()
+        self.server.login(self.username, password)
+
+    def send(self, email: Mail):
+        self.server.sendmail(self.username, email.to, email.mail)
 
 if __name__ == '__main__':
-    e = Email('example@example.com', 'example@example.com', 'Hey how are you!', 'Hello there :)')
+    email = Mail('example@gmail.com', 'example@example.com', 'Hey how are you!', 'Hello there :)')
+
+    gmail = Email('smtp.gmail.com', 'example@gmail.com', 'password123')
+    gmail.send(email)
